@@ -243,7 +243,7 @@ const District = () => {
           <div className="flex items-center space-x-3">
             <div className="text-4xl">🎪</div>
             <div>
-              <h1 className="text-3xl font-bold">Walmart District</h1>
+              <h1 className="text-3xl font-bold">Walmart Spot</h1>
               <p className="text-lg opacity-90">Entertainment meets shopping - discover, experience, shop</p>
             </div>
           </div>
