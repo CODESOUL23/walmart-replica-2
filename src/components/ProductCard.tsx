@@ -21,26 +21,25 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
 
   return (
     <Link to={`/product/${product.id}`}>
-      <Card className="group hover:shadow-xl transition-all duration-300 h-full transform hover:scale-105 hover:bg-gradient-to-br hover:from-background hover:to-walmart-yellow/5 border hover:border-walmart-yellow/30">
-        <CardContent className="p-3">
+      <Card className="group hover:shadow-lg transition-shadow h-full">
+        <CardContent className="p-4">
           {/* Product Image */}
-          <div className="relative mb-3">
+          <div className="relative mb-4">
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-32 sm:h-36 object-cover rounded-md group-hover:scale-110 transition-transform duration-300"
+              className="w-full h-48 object-cover rounded-md"
             />
             {product.isRollback && (
-              <Badge className="absolute top-1 left-1 bg-gradient-to-r from-sale-red to-red-600 text-sale-red-foreground text-xs px-2 py-1 shadow-lg animate-pulse">
+              <Badge className="absolute top-2 left-2 bg-sale-red text-sale-red-foreground">
                 Rollback
               </Badge>
             )}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-md"></div>
           </div>
 
           {/* Product Info */}
-          <div className="space-y-1.5">
-            <h3 className="font-medium text-xs sm:text-sm line-clamp-2 text-foreground group-hover:text-primary transition-colors duration-300">
+          <div className="space-y-2">
+            <h3 className="font-medium text-sm line-clamp-2 text-foreground">
               {product.name}
             </h3>
             
@@ -50,22 +49,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`h-2.5 w-2.5 ${
+                    className={`h-3 w-3 ${
                       i < 4 ? 'fill-walmart-yellow text-walmart-yellow' : 'text-muted-foreground'
                     }`}
                   />
                 ))}
               </div>
-              <span className="text-xs text-muted-foreground hidden sm:inline">(124)</span>
+              <span className="text-xs text-muted-foreground">(124)</span>
             </div>
 
             {/* Price */}
-            <div className="flex items-center space-x-1 flex-wrap">
-              <span className="text-sm sm:text-base font-bold text-foreground">
+            <div className="flex items-center space-x-2">
+              <span className="text-lg font-bold text-foreground">
                 ${product.price.toFixed(2)}
               </span>
               {product.originalPrice && (
-                <span className="text-xs text-muted-foreground line-through">
+                <span className="text-sm text-muted-foreground line-through">
                   ${product.originalPrice.toFixed(2)}
                 </span>
               )}
@@ -74,11 +73,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             {/* Add to Cart Button */}
             <Button
               onClick={handleAddToCart}
-              className="w-full mt-2 bg-walmart-yellow text-walmart-yellow-foreground hover:bg-walmart-yellow/90 shadow-md hover:shadow-lg transition-all duration-300 transform hover:scale-105"
+              className="w-full mt-3 bg-walmart-yellow text-walmart-yellow-foreground hover:bg-walmart-yellow/90"
               size="sm"
             >
-              <ShoppingCart className="h-3 w-3 mr-1" />
-              <span className="text-xs">Add to Cart</span>
+              <ShoppingCart className="h-4 w-4 mr-2" />
+              Add to Cart
             </Button>
           </div>
         </CardContent>
